@@ -1,0 +1,5 @@
+com\mycompany\studentmanagementmvc\JakartaRestConfiguration.class
+dao\StudentDAO.class
+com\mycompany\studentmanagementmvc\resources\JakartaEE10Resource.class
+model\Student.class
+controller\StudentController.class
