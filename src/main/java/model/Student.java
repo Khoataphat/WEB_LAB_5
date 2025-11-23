@@ -17,17 +17,26 @@ public class Student {
     private String email;
     private String major;
     private Timestamp createdAt;
+    private String photo;
     
     // No-arg constructor (required for JavaBean)
     public Student() {
     }
     
-    // Constructor for creating new student (without ID)
     public Student(String studentCode, String fullName, String email, String major) {
+    this.studentCode = studentCode;
+    this.fullName = fullName;
+    this.email = email;
+    this.major = major;
+}
+    
+    // Constructor for creating new student (without ID)
+    public Student(String studentCode, String fullName, String email, String major, String photo) {
         this.studentCode = studentCode;
         this.fullName = fullName;
         this.email = email;
         this.major = major;
+        this.photo = photo;
     }
     
     // Getters and Setters
@@ -78,6 +87,8 @@ public class Student {
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
+    public String getPhoto() { return photo; }
+    public void setPhoto(String photo) { this.photo = photo; }
     
     @Override
     public String toString() {

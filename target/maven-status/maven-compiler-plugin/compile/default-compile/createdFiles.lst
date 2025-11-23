@@ -1,5 +1,6 @@
-com\mycompany\studentmanagementmvc\JakartaRestConfiguration.class
-dao\StudentDAO.class
 com\mycompany\studentmanagementmvc\resources\JakartaEE10Resource.class
 model\Student.class
+com\mycompany\studentmanagementmvc\JakartaRestConfiguration.class
+dao\StudentDAO.class
+controller\ExportServlet.class
 controller\StudentController.class
