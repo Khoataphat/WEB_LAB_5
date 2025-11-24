@@ -1,6 +1,13 @@
+dao\StudentDAO.class
+filter\AdminFilter.class
+controller\ExportServlet.class
+controller\DashboardController.class
+controller\StudentController.class
+filter\AuthFilter.class
 com\mycompany\studentmanagementmvc\resources\JakartaEE10Resource.class
+controller\LoginController.class
 model\Student.class
 com\mycompany\studentmanagementmvc\JakartaRestConfiguration.class
-dao\StudentDAO.class
-controller\ExportServlet.class
-controller\StudentController.class
+dao\UserDAO.class
+controller\LogoutController.class
+model\User.class

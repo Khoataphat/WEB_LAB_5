@@ -268,9 +268,104 @@
                 margin-bottom: 30px;
                 font-weight: 500;
             }
+            .navbar {
+                background: white; /* Nền trắng cho thanh nav */
+                padding: 15px 30px;
+                display: flex;
+                justify-content: space-between; /* Đẩy các phần tử ra hai bên */
+                align-items: center;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px; /* Khoảng cách với container bên dưới */
+                border-radius: 8px; /* Bo góc nhẹ */
+            }
+
+            .navbar h2 {
+                color: #4A5568; /* Màu chữ tiêu đề */
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            .navbar-right {
+                display: flex;
+                align-items: center;
+                gap: 15px; /* Khoảng cách giữa các phần tử bên phải */
+            }
+
+            .user-info {
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                color: #555;
+                font-weight: 500;
+            }
+
+            .role-badge {
+                padding: 4px 8px;
+                border-radius: 4px;
+                font-size: 11px;
+                margin-left: 8px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .role-admin {
+                background-color: #f7a44f; /* Màu cam */
+                color: white;
+            }
+
+            .role-user {
+                background-color: #667eea; /* Màu tím/xanh primary */
+                color: white;
+            }
+
+            .btn-nav, .btn-logout {
+                padding: 8px 16px;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: 500;
+                transition: all 0.3s;
+                font-size: 14px;
+                display: inline-block;
+                border: 1px solid transparent;
+            }
+
+            .btn-nav {
+                background-color: #e9ecef;
+                color: #4A5568;
+            }
+
+            .btn-nav:hover {
+                background-color: #d1d6db;
+            }
+
+            .btn-logout {
+                background-color: #dc3545;
+                color: white;
+            }
+
+            .btn-logout:hover {
+                background-color: #c82333;
+                transform: none; /* Tránh dịch chuyển */
+            }
         </style>
     </head>
     <body>
+
+        <!-- Navigation Bar -->
+        <div class="navbar">
+            <h2>📚 Student Management System</h2>
+            <div class="navbar-right">
+                <div class="user-info">
+                    <span>Welcome, ${sessionScope.fullName}</span>
+                    <span class="role-badge role-${sessionScope.role}">
+                        ${sessionScope.role}
+                    </span>
+                </div>
+                <a href="dashboard" class="btn-nav">Dashboard</a>
+                <a href="logout" class="btn-logout">Logout</a>
+            </div>
+        </div>
+
         <div class="container">
             <h1>📚 Student Management System</h1>
             <p class="subtitle">MVC Pattern with Jakarta EE & JSTL</p>
@@ -288,9 +383,11 @@
             </c:if>
 
             <div style="margin-bottom: 20px;">
-                <a href="student?action=new" class="btn btn-primary">
-                    ➕ Add New Student
-                </a>
+                <c:if test="${sessionScope.role eq 'admin'}">
+                    <div style="margin: 20px 0;">
+                        <a href="student?action=new" class="btn btn-primary">➕ Add New Student</a>
+                    </div>
+                </c:if>
                 <a href="export" class="btn btn-success">
                     <i class="fas fa-file-excel"></i> Export to Excel
                 </a>
@@ -410,7 +507,7 @@
                             <c:forEach var="student" items="${listStudent}">
                                 <tr>
                                     <td>${student.id}</td>
-                                    
+
                                     <td>
                                         <c:choose>
                                             <c:when test="${not empty student.photo}">

@@ -9,6 +9,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>student</welcome-file>
+        <welcome-file>login</welcome-file>
     </welcome-file-list>
 </web-app>
