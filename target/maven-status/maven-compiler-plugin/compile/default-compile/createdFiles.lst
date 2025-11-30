@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 dao\StudentDAO.class
 filter\AdminFilter.class
 controller\ExportServlet.class
@@ -11,3 +12,10 @@ com\mycompany\studentmanagementmvc\JakartaRestConfiguration.class
 dao\UserDAO.class
 controller\LogoutController.class
 model\User.class
+=======
+com\mycompany\studentmanagementmvc\JakartaRestConfiguration.class
+dao\StudentDAO.class
+com\mycompany\studentmanagementmvc\resources\JakartaEE10Resource.class
+model\Student.class
+controller\StudentController.class
+>>>>>>> parent of cc33da8 (Lab5)
