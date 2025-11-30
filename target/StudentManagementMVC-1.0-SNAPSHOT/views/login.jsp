@@ -156,28 +156,29 @@
             <p>Student Management System</p>
         </div>
         
-        <!-- Error Message -->
         <c:if test="${not empty error}">
             <div class="alert alert-error">
                 ❌ ${error}
             </div>
         </c:if>
         
-        <!-- Success Message -->
         <c:if test="${not empty param.message}">
             <div class="alert alert-success">
                 ✅ ${param.message}
             </div>
         </c:if>
         
-        <!-- Login Form -->
         <form action="login" method="post">
+            
+            <%-- KHUYẾN NGHỊ BẢO MẬT: Phải được Controller tạo và xác thực --%>
+            <input type="hidden" name="csrfToken" value="${sessionScope.csrfToken}">
+
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" 
                        id="username" 
                        name="username" 
-                       value="${username}"
+                       value="${username}" <%-- Giữ lại giá trị nếu đăng nhập thất bại --%>
                        placeholder="Enter your username"
                        required
                        autofocus>
@@ -200,7 +201,6 @@
             <button type="submit" class="btn-login">Login</button>
         </form>
         
-        <!-- Demo Credentials -->
         <div class="demo-credentials">
             <h4>Demo Credentials:</h4>
             <p><strong>Admin:</strong> username: admin / password: password123</p>

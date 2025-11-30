@@ -1,8 +1,8 @@
-<<<<<<< HEAD
+controller\CookieTestController.class
 dao\StudentDAO.class
 filter\AdminFilter.class
-controller\ExportServlet.class
 controller\DashboardController.class
+util\PasswordUtil.class
 controller\StudentController.class
 filter\AuthFilter.class
 com\mycompany\studentmanagementmvc\resources\JakartaEE10Resource.class
@@ -10,12 +10,7 @@ controller\LoginController.class
 model\Student.class
 com\mycompany\studentmanagementmvc\JakartaRestConfiguration.class
 dao\UserDAO.class
+util\CookieUtil.class
+controller\ChangePasswordController.class
 controller\LogoutController.class
 model\User.class
-=======
-com\mycompany\studentmanagementmvc\JakartaRestConfiguration.class
-dao\StudentDAO.class
-com\mycompany\studentmanagementmvc\resources\JakartaEE10Resource.class
-model\Student.class
-controller\StudentController.class
->>>>>>> parent of cc33da8 (Lab5)

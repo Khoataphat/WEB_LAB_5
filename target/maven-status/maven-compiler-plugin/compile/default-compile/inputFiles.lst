@@ -1,21 +1,16 @@
-<<<<<<< HEAD
+D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\util\PasswordUtil.java
 D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\controller\StudentController.java
+D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\controller\ChangePasswordController.java
 D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\controller\DashboardController.java
 D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\model\User.java
+D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\controller\CookieTestController.java
 D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\com\mycompany\studentmanagementmvc\JakartaRestConfiguration.java
-D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\controller\ExportServlet.java
 D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\dao\StudentDAO.java
 D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\controller\LogoutController.java
 D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\com\mycompany\studentmanagementmvc\resources\JakartaEE10Resource.java
 D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\dao\UserDAO.java
 D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\controller\LoginController.java
+D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\util\CookieUtil.java
 D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\model\Student.java
 D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\filter\AdminFilter.java
 D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC-Lab6\src\main\java\filter\AuthFilter.java
-=======
-D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC\src\main\java\com\mycompany\studentmanagementmvc\JakartaRestConfiguration.java
-D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC\src\main\java\controller\StudentController.java
-D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC\src\main\java\com\mycompany\studentmanagementmvc\resources\JakartaEE10Resource.java
-D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC\src\main\java\dao\StudentDAO.java
-D:\HK1 IT IU 2025-26\Web\Web Project\StudentManagementMVC\src\main\java\model\Student.java
->>>>>>> parent of cc33da8 (Lab5)
