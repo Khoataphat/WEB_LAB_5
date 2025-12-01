@@ -8,12 +8,15 @@ package filter;
  *
  * @author Admin
  */
+import dao.UserDAO;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+import model.User;
 
 /**
  * Authentication Filter - Checks if user is logged in Protects all pages except
@@ -61,7 +64,41 @@ public class AuthFilter implements Filter {
         // Check if user is logged in
         HttpSession session = httpRequest.getSession(false);
         boolean isLoggedIn = (session != null && session.getAttribute("user") != null);
+        Object token = null;
 
+        // 2. Nếu token tồn tại, thử auto-login
+            if (token != null) {
+                UserDAO userDAO = new UserDAO();
+                User user = userDAO.getUserByToken((String) token); // Lấy User nếu token hợp lệ và chưa hết hạn
+                
+                if (user != null) {
+                    // Token hợp lệ - Tự động đăng nhập User
+                    session = httpRequest.getSession(true); // Tạo session mới
+                    session.setAttribute("user", user);
+                    session.setAttribute("userId", user.getId());
+                    session.setAttribute("username", user.getUsername());
+                    session.setAttribute("role", user.getRole());
+                    session.setAttribute("fullName", user.getFullName());
+
+                    // Đánh dấu đã đăng nhập thành công
+                    isLoggedIn = true; 
+                    
+                    // KHÔNG cần chain.doFilter ở đây vì chúng ta sẽ tiếp tục kiểm tra isLoggedIn ở dưới
+                    // và cho phép truy cập.
+                    
+                } else {
+                    // Token không hợp lệ/đã hết hạn - Xóa cookie khỏi trình duyệt
+                    Cookie deleteCookie = new Cookie("remember_token", "");
+                    deleteCookie.setMaxAge(0);
+                    deleteCookie.setPath("/");
+                    httpResponse.addCookie(deleteCookie);
+                    
+                    // KHUYẾN NGHỊ: Xóa token khỏi DB (để dọn dẹp), nhưng logic này thường đặt trong UserDAO.getUserByToken
+                    // hoặc LogoutController để tránh logic quá nặng trong Filter.
+                }
+            }
+       
+        
         if (isLoggedIn) {
             // User is logged in, allow access
             chain.doFilter(request, response);

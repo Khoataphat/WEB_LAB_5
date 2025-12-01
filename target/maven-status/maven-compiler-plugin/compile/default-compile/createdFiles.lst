@@ -13,4 +13,5 @@ dao\UserDAO.class
 util\CookieUtil.class
 controller\ChangePasswordController.class
 controller\LogoutController.class
+controller\ThemeController.class
 model\User.class

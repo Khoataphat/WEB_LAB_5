@@ -207,4 +207,60 @@ public class UserDAO {
             return false;
         }
     }
+
+    /**
+     * Save remember token to database
+     */
+    public void saveRememberToken(int userId, String token) {
+        // Thời hạn token là 30 ngày kể từ NOW()
+        String sql = "INSERT INTO remember_tokens (user_id, token, expires_at) "
+                + "VALUES (?, ?, DATE_ADD(NOW(), INTERVAL 30 DAY))";
+
+        try (Connection conn = getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setInt(1, userId);
+            pstmt.setString(2, token);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Get user by valid (non-expired) token
+     */
+    public User getUserByToken(String token) {
+        String sql = "SELECT u.* FROM users u "
+                + "JOIN remember_tokens rt ON u.id = rt.user_id "
+                + "WHERE rt.token = ? "
+                + "AND rt.expires_at > NOW() "
+                + // Kiểm tra token chưa hết hạn
+                "AND u.is_active = TRUE";
+
+        try (Connection conn = getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, token);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                // Tái sử dụng mapResultSetToUser() để tạo User object
+                return mapResultSetToUser(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * Delete remember token from database
+     */
+    public void deleteRememberToken(String token) {
+        String sql = "DELETE FROM remember_tokens WHERE token = ?";
+
+        try (Connection conn = getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, token);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
